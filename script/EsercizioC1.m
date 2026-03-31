@@ -1,0 +1,13 @@
+clear;
+close all;
+s=zpk('s');
+G=((s+20)/(((20/9)*s^2)+((40/3)*s)+(80/9)));
+C=5/s;
+L=series(C,G);
+figure(1);
+margin(L);
+grid;
+legend;
+[L_p,L_z]=pzmap(L);
+figure(2);
+nyquist(L);
